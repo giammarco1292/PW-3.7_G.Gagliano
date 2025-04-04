@@ -1,0 +1,403 @@
+/* 
+ * File CSS principale per il sito dei Report di Sostenibilità Siemens
+ * Questo file contiene tutti gli stili necessari per definire l'aspetto della pagina.
+ * Ho cercato di mantenere un design pulito e leggibile con colori coerenti al brand.
+ */
+
+ /* Definizione delle variabili CSS per i colori principali del sito.
+ * Utilizzo i colori ufficiali di Siemens per garantire un'identità visiva riconoscibile.
+*/
+:root {
+  --siemens-green: #fa8181;  /* Colore verde Siemens */
+  --siemens-dark: #005b82;   /* Colore blu scuro Siemens, utile per titoli e sfondi */
+  --siemens-light: #e5f2f2;  /* Colore verde chiaro Siemens, per sezioni di sfondo */
+  --text-dark: #333333;      /* Colore per testo scuro ad alto contrasto, standard per il testo principale */
+  --text-light: #ffffff;     /* Colore per testo chiaro su sfondi scuri */
+}
+
+/* Reset CSS per garantire una visualizzazione uniforme tra diversi browser */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;  /* Questo assicura che il padding non sfasi le dimensioni */
+}
+
+/* Stili base per il corpo della pagina 
+* Imposto un font leggibile e un colore di sfondo neutro
+*/
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;  /* Famiglia di font principale */
+  line-height: 1.6;                           /* Aggiunto un po' di spazio per rendere il testo più leggibile */
+  color: var(--text-dark);                    /* Colore del testo principale */
+  background: #f9f9f9;                  /* Colore di sfondo della pagina */
+}
+
+/* Container principale che imposta la larghezza massima della pagina.
+ * Aiuta a evitare che i contenuti diventino troppo larghi sugli schermi grandi. 
+ */
+.container {
+  max-width: 1200px;    /* Larghezza massima del contenuto per desktop */
+  margin: 0 auto;       /* Centra tutto orizzontalmente */
+  padding: 0 20px;      /* Un po' di margine laterale per evitare che il contenuto tocchi i bordi */
+}
+
+/* Header della pagina, contiene il logo e il menu.
+ * Lo sfondo è bianco per mantenere un look pulito.
+ */
+header {
+  background-color: var(--text-light);  /* Sfondo bianco per l'header */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* Leggera ombra per dare profondità */
+  padding: 20px 0;                     /* Spaziatura verticale interna */
+}
+
+/* Stile per il logo Siemens nell'header */
+.logo {
+  height: 80px;  /* Fisso l'altezza per evitare ridimensionamenti */
+}
+
+/* 
+* Sezione hero: l'intestazione principale della pagina con uno sfondo colorato
+* Uso un gradiente per un effetto visivo più moderno 
+*/
+.hero {
+  background: linear-gradient(135deg, var(--siemens-dark), var(--siemens-green));  /* Gradiente Siemens */
+  color: var(--text-light);            /* Testo bianco per contrasto */
+  padding: 60px 0;                     /* Spaziatura verticale */
+  text-align: center;                  /* Allineamento centrale del testo */
+}
+
+/* Titolo principale all'interno della sezione hero */
+.hero h1 {
+  font-size: 2.5rem;       /* Dimensione del font per il titolo principale */
+  margin-bottom: 20px;     /* Margine inferiore per separazione */
+  font-weight: 300;        /* Leggero per un effetto più elegante */
+}
+
+/* Paragrafo nella sezione hero */
+.hero p {
+  font-size: 1.2rem;       /* Dimensione del font aumentata */
+  max-width: 800px;        /* Larghezza massima per ottimale leggibilità */
+  margin: 0 auto 30px;     /* Centra il paragrafo e aggiunge margine inferiore */
+}
+
+/* Sezione principale del contenuto */
+.main-content {
+  padding: 60px 0;         /* Spaziatura verticale per respiro visivo */
+}
+
+/* Stile per i titoli delle sezioni */
+.section-title {
+  text-align: center;      /* Allineamento centrale */
+  margin-bottom: 40px;     
+  color: var(--siemens-dark);  /* Colore brand Siemens */
+  font-size: 2rem;         /* Dimensione del font */
+  font-weight: 300;        
+}
+
+/*  
+* Griglia per organizzare le card dei report in modo responsivo.
+* Uso grid layout per gestire automaticamente il numero di colonne. 
+*/
+.reports-grid {
+  display: grid;                                      /* Layout a griglia CSS */
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));  /* Colonne responsive */
+  gap: 30px;                                          /* Spazio tra le card */
+  margin-top: 40px;                                   /* Margine superiore */
+}
+
+/* 
+ * Stili delle card che contengono i report di sostenibilità
+ * Hanno un aspetto pulito e un leggero effetto di sollevamento quando si passa sopra con il mouse.
+ */
+.report-card {
+  background-color: var(--text-light);  /* Sfondo bianco */
+  border-radius: 8px;                   /* Bordi arrotondati */
+  overflow: hidden;                     /* Evita che i contenuti escano dai bordi arrotondati */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);  /* Ombra leggera */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 
+ * Effetto hover sulle card dei report: un piccolo sollevamento per evidenziarle
+ */
+.report-card:hover {
+  transform: translateY(-5px);           /* Leggera traslazione verso l'alto */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);  /* Ombra più pronunciata */
+}
+
+/* Contenitore per l'immagine nella card */
+.report-image {
+  height: 180px;                         /* Altezza fissa */
+  background-color: #f9f9f9;  /* Colore di sfondo */
+  display: flex;                         /* Flex per centrare l'immagine */
+  align-items: center;
+  justify-content: center;
+}
+
+/* Stile per le immagini all'interno delle card */
+.report-image img {
+  max-height: 180px;     /* Altezza massima */
+  max-width: 120%;       /* Larghezza massima */
+}
+
+/* Contenuto testuale delle card */
+.report-content {
+  padding: 25px;         /* Spaziatura interna */
+}
+
+/* Titolo all'interno della card */
+.report-content h3 {
+  color: var(--siemens-dark);  /* Colore brand Siemens */
+  margin-bottom: 15px;         /* Margine inferiore */
+  font-size: 1.3rem;           /* Dimensione del font */
+}
+
+/* Paragrafo all'interno della card */
+.report-content p {
+  margin-bottom: 20px;         /* Margine inferiore */
+  color: #666;                /* Colore testo secondario */
+}
+
+/*  
+ * Stili del pulsante di download all'interno delle card
+ * Il colore di sfondo cambia al passaggio del mouse.
+ */
+.download-btn {
+  display: inline-block;               /* Visualizzazione inline con dimensioni */
+  background-color: var(--siemens-green);  /* Colore verde Siemens */
+  color: var(--text-light);           /* Testo bianco */
+  padding: 10px 20px;                 /* Spaziatura interna */
+  border-radius: 4px;                 /* Bordi arrotondati */
+  text-decoration: none;              
+  font-weight: 500;                   /* Peso del font medio */
+  transition: background-color 0.3s ease; 
+}
+
+/* Cambio colore quando il pulsante viene evidenziato */
+.download-btn:hover {
+  background-color: var(--siemens-dark);  /* Cambio colore */
+}
+
+/* Stile per le icone all'interno dei pulsanti */
+.download-btn i {
+  margin-right: 8px;  /* Spaziatura a destra dell'icona */
+}
+
+/*
+ * Sezione informazioni sulla sostenibilità
+ * Questa parte del sito evidenzia i valori di Siemens. 
+ */
+.sustainability-info {
+  background-color: var(--siemens-light);  /* Sfondo verde chiaro Siemens */
+  padding: 60px 0;                         /* Spaziatura verticale */
+  margin: 60px 0;                          
+}
+
+/* Griglia per le card informative */
+.info-grid {
+  display: grid;                                      /* Layout a griglia */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* Colonne responsive */
+  gap: 40px;                                          /* Spazio tra le card */
+}
+
+/* Stile per le singole card informative */
+.info-card {
+  text-align: center;  /* Allineamento testo al centro */
+}
+
+/* Stile per le icone nelle card informative */
+.info-card i {
+  font-size: 2.5rem;           /* Dimensione grande */
+  color: var(--siemens-green);  /* Colore verde Siemens */
+  margin-bottom: 20px;         /* Margine inferiore */
+}
+
+/* Titoli nelle card informative */
+.info-card h3 {
+  color: var(--siemens-dark);  /* Colore blu scuro Siemens */
+  margin-bottom: 15px;         /* Margine inferiore */
+}
+
+/*
+ * Layout del footer con una griglia responsive.
+ * Aggiungo un gradiente per dare continuità al design della pagina. 
+ */
+footer {
+  background: linear-gradient(135deg, var(--siemens-dark), var(--siemens-green));  /* Gradiente Siemens */
+  color: var(--text-light);               /* Testo bianco */
+  padding: 40px 0 20px;                   /* Spaziatura verticale */
+}
+
+/*
+ * Contenitore del footer con una disposizione in colonne.
+ * Le colonne si ridimensionano automaticamente sui dispositivi mobili. 
+ */
+.footer-content {
+  display: grid;                                      /* Layout a griglia */
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  /* Colonne responsive */
+  gap: 30px;                                          /* Spazio tra le colonne */
+  margin-bottom: 30px;                                /* Margine inferiore */
+}
+
+/* Titoli delle colonne nel footer */
+.footer-column h3 {
+  margin-bottom: 20px;     /* Margine inferiore */
+  font-weight: 400;        /* Peso del font normale */
+}
+
+/* Lista non ordinata nel footer */
+.footer-column ul {
+  list-style: none;        
+}
+
+/* Elementi della lista nel footer */
+.footer-column ul li {
+  margin-bottom: 10px;     /* Margine inferiore */
+}
+
+/* Stile per i link nel footer */
+.footer-column a {
+  color: #cccccc;          /* Colore grigio chiaro */
+  text-decoration: none;   
+  transition: color 0.3s ease;  /* Transizione colore */
+}
+
+/* Effetto hover per i link nel footer */
+.footer-column a:hover {
+  color: var(--text-light);  /* Cambio colore */
+}
+
+/* Copyright in basso al footer con una linea di separazione sottile. */
+.copyright {
+  text-align: center;               /* Allineamento centrale */
+  padding-top: 20px;                /* Spaziatura superiore */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);  /* Linea di separazione */
+  color: #cccccc;                   /* Colore grigio chiaro */
+  font-size: 0.9rem;                /* Dimensione ridotta */
+}
+
+/* Classe per elementi visibili solo agli screen reader (accessibilità) */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Link per saltare al contenuto principale (accessibilità) */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--siemens-dark);
+  color: white;
+  padding: 8px;
+  z-index: 100;
+  transition: top 0.3s;
+}
+
+/* Mostra il link skip quando ha il focus (tastiera) */
+.skip-link:focus {
+  top: 0;
+}
+
+/* 
+ * Media query per migliorare la leggibilità sui dispositivi mobili.
+ * Riduco le dimensioni di alcuni elementi per adattarli meglio agli schermi piccoli.
+ */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;/* Testo un po' più piccolo per evitare che occupi troppo spazio */
+  }
+
+  /* Riduzione dimensione paragrafo hero */
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+/* Container per l'header con layout flex */
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Stile per il carosello di immagini sulla sostenibilità */
+.sustainability-carousel {
+  width: 60%;
+  max-width: 600px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Slide singola del carosello */
+.carousel-slide {
+  position: relative;
+}
+
+/* Immagine all'interno della slide */
+.carousel-slide img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Didascalia per le immagini del carosello */
+.carousel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 91, 130, 0.8);
+  color: white;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+/* Stile per i punti di navigazione del carosello */
+.slick-dots {
+  bottom: 10px;
+}
+
+.slick-dots li button:before {
+  color: white;
+  opacity: 0.5;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white;
+  opacity: 1;
+}
+
+/* Media query per dispositivi mobili */
+@media (max-width: 768px) {
+  /* Cambio layout header da riga a colonna */
+  .header-container {
+    flex-direction: column;
+  }
+  
+  /* Margine inferiore per il logo */
+  .logo {
+    margin-bottom: 15px;
+  }
+  
+  /* Riorganizzazione del layout del carosello per dispositivi mobili */
+  .sustainability-carousel {
+    width: 100%;
+    max-width: none;
+  }
+  
+  /* Riduzione dell'altezza per adattarlo meglio agli schermi piccoli */
+  .carousel-slide img {
+    height: 120px;
+  }
+}
